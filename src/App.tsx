@@ -1,8 +1,26 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Layout from "@/layouts/Layout";
+import About from "@/pages/About";
+import Blogs from "@/pages/Blogs";
+import Events from "@/pages/Events";
+import Home from "@/pages/Home";
+import NotFound from "@/pages/NotFound";
+import Projects from "@/pages/Projects";
+
 function App() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center space-y-4">
-      <h1 className="text-center text-4xl font-bold">Hello GIT</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="events" element={<Events />} />
+          <Route path="blogs" element={<Blogs />} />
+          <Route path="projects" element={<Projects />} />
+          <Route path="about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
