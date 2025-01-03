@@ -4,11 +4,13 @@ import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
-    <>
+    <div className="mx-auto max-w-[120rem]">
       <Header />
-      <Outlet />
+      <div className="px-4">
+        <Outlet />
+      </div>
       <Footer />
-    </>
+    </div>
   );
 };
 
