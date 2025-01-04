@@ -1,10 +1,8 @@
 name: Render CI/CD
 
 on:
-  pull_request:
-    branches: [main, staging, dev]
   push:
-    branches: [dev]
+    branches: [main, staging, dev]
 
 jobs:
   build:
