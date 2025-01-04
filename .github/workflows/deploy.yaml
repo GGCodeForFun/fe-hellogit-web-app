@@ -1,0 +1,63 @@
+name: Render CI/CD
+
+on:
+  pull_request:
+    branches: [main, staging, dev]
+  push:
+    branches: [dev]
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-24.04
+
+    strategy:
+      matrix:
+        node-version: [22.x]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.JS ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: NPM install, build
+        run: |
+          npm install
+          npm run build
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Deploy to Render (PROD)
+        if: github.ref == 'refs/heads/main'
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.RENDER_PROD_DEPLOY_ID }}
+          api-key: ${{ secrets.RENDER_API_KEY }}
+
+      - name: Deploy to Render (Staging)
+        if: github.ref == 'refs/heads/staging'
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.RENDER_STAGING_DEPLOY_ID }}
+          api-key: ${{ secrets.RENDER_API_KEY }}
+
+      - name: Deploy to Render (Dev)
+        if: github.ref == 'refs/heads/dev'
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.RENDER_DEV_DEPLOY_ID }}
+          api-key: ${{ secrets.RENDER_API_KEY }}
