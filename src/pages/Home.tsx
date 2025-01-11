@@ -14,18 +14,18 @@ const listImg = [image6, image1, image2, image3, image4, image5];
 
 const Home = () => {
   return (
-    <div className="space-y-4">
-      <section className="relative max-h-[90vh] overflow-hidden rounded-xl">
+    <div className="space-y-10">
+      <section className="relative min-h-[85vh] overflow-hidden rounded-xl">
         <Image
           preview={false}
           src={bgImage}
           alt="background"
-          className="h-full w-full object-cover"
+          className="min-h-[85vh] object-cover"
         />
-        <div className="absolute inset-0 flex flex-col justify-center bg-black bg-opacity-50 pl-10 text-white">
+        <div className="absolute inset-0 flex flex-col justify-center bg-black bg-opacity-50 px-10 text-white">
           <p>Since 2021</p>
-          <h1 className="text-7xl font-bold">HELLO GIT</h1>
-          <p className="font-semibold">
+          <h1 className="text-4xl font-bold sm:text-7xl">HELLO GIT</h1>
+          <p className="text-sm font-semibold">
             We are University of Greenwich Information Technology club
           </p>
         </div>
@@ -40,17 +40,15 @@ const Home = () => {
         </Button>
       </section>
       <section className="flex flex-col gap-4 md:flex-row-reverse">
-        <div className="self-center md:w-2/3">
+        <div className="self-center md:w-1/2 xl:w-2/3">
           <Tag color="#205172">LATEST EVENT</Tag>
-          <h2 className="mb-2 text-5xl font-semibold">Code Challenge 2025</h2>
-          <p className="mb-2">
+          <h2 className="mb-2 text-5xl font-semibold uppercase">
+            Code Challenge 2025
+          </h2>
+          <p className="mb-2 line-clamp-2">
             Huynh Tan Canh is the host of this show, he is Lorem ipsum dolor sit
             amet, consectetur adipiscing elit. Aliquam rhoncus bibendum congue.
-            Proin aliquet quam pulvinar risus mollis, eu tincidunt purus varius.
-            Duis auctor neque magna, in facilisis nisi sollicitudin a.
-            Vestibulum mattis sem ut felis tempor egestas at id nunc. Phasellus
-            non convallis arcu. Suspendisse fermentum blandit risus, sit amet
-            egestas neque vehicula vitae.
+            Proin aliquet quam pulvinar risus mollis
           </p>
           <Button
             icon={<AiOutlineArrowRight />}
@@ -61,7 +59,7 @@ const Home = () => {
             View more
           </Button>
         </div>
-        <div className="flex items-center overflow-hidden rounded-xl shadow-lg md:w-1/3">
+        <div className="flex items-center overflow-hidden rounded-xl shadow-lg md:w-1/2 xl:w-1/3">
           <Image
             preview={false}
             src={image5}
@@ -72,25 +70,11 @@ const Home = () => {
       </section>
       <section className="space-y-4">
         <div>
-          <h2 className="mb-2 text-5xl font-semibold">
-            Explore Our Project Collection
-          </h2>
+          <h2 className="mb-2 text-5xl font-semibold uppercase">Projects</h2>
           <p className="mb-2">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Repudiandae, cumque ducimus. Totam atque possimus fuga, laudantium
-            magni vitae voluptatum distinctio labore animi praesentium molestiae
-            blanditiis explicabo omnis doloremque minus soluta.
+            Repudiandae, cumque ducimus. Totam atque possimus fuga.
           </p>
-          <div className="text-right">
-            <Button
-              icon={<AiOutlineArrowRight />}
-              iconPosition="end"
-              shape="round"
-              type="primary"
-            >
-              View more
-            </Button>
-          </div>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
           {listImg.slice(0, 6).map((item, index) => {
@@ -109,6 +93,16 @@ const Home = () => {
               </div>
             );
           })}
+        </div>
+        <div className="text-center">
+          <Button
+            icon={<AiOutlineArrowRight />}
+            iconPosition="end"
+            shape="round"
+            type="primary"
+          >
+            View more
+          </Button>
         </div>
       </section>
     </div>
