@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/icons/logo.svg";
 
 const routeLinks = [
   { to: "/", label: "Home" },
@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <div className="flex items-center justify-between px-4 py-2 shadow-lg">
       <Link to="/">
-        <img src={logo} alt="logo" width={32} height={32} />
+        <img src={logo} alt="logo" width={170} />
       </Link>
       <nav>
         <ul className="flex space-x-4">
