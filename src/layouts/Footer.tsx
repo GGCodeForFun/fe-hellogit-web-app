@@ -1,7 +1,7 @@
 import React from "react";
 
-import greenwichLogo from '@/assets/icons/greenwich-uni.svg'
-import clubLogo_1 from '@/assets/icons/logo_1.svg'
+import greenwichLogo from "@/assets/icons/greenwich-uni.svg";
+import clubLogo_1 from "@/assets/icons/logo_1.svg";
 
 const Footer: React.FC = () => {
   return (
@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Logos */}
-      <div className="flex space-x-6 items-center">
+      <div className="flex items-center space-x-6">
         <img
           src={greenwichLogo}
           alt="University of Greenwich Logo"
