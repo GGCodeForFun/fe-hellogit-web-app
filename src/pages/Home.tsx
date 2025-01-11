@@ -1,17 +1,16 @@
+import image1 from "@/assets/images/HelloGIT-1.jpg";
+import image4 from "@/assets/images/HelloGIT-11.jpg";
+import image2 from "@/assets/images/HelloGIT-15.jpg";
 import bgImage from "@/assets/images/HelloGIT-21.jpg";
+import image3 from "@/assets/images/HelloGIT-7.jpg";
+import image5 from "@/assets/images/coffee-code.jpg";
+import image6 from "@/assets/images/computer-vision.jpg";
 import { Button, Image, Tag } from "antd";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const listImg = [
-  "./src/assets/images/computer-vision.jpg",
-  "./src/assets/images/HelloGIT-1.jpg",
-  "./src/assets/images/HelloGIT-15.jpg",
-  "./src/assets/images/HelloGIT-7.jpg",
-  "./src/assets/images/HelloGIT-11.jpg",
-  "./src/assets/images/coffee-code.jpg",
-];
+const listImg = [image6, image1, image2, image3, image4, image5];
 
 const Home = () => {
   return (
@@ -65,7 +64,7 @@ const Home = () => {
         <div className="flex items-center overflow-hidden rounded-xl shadow-lg md:w-1/3">
           <Image
             preview={false}
-            src="./src/assets/images/coffee-code.jpg"
+            src={image5}
             alt="Event image"
             className="object-cover"
           />
